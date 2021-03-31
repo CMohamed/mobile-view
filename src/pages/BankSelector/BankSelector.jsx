@@ -12,8 +12,12 @@ export const BankSelector = () => {
     const [banks, setBanks] = useState(BANKS);
     const [selectedBank, setSelectedBank] = useState(null);
     const handleSelectChange = (bankId) => {
-        const selectedBank = banks.find(bank => bank.id === bankId);
-        setSelectedBank(selectedBank);
+        const checkedBank = banks.find(bank => bank.id === bankId);
+        if (selectedBank && selectedBank.id === bankId) {
+            setSelectedBank(null);
+        } else {
+            setSelectedBank(checkedBank);
+        }
     }
     const completePayment = (event) => {
         console.log(event);

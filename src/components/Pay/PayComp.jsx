@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import { makeStyles, withStyles, fade } from '@material-ui/core/styles';
+import {makeStyles, withStyles, fade} from '@material-ui/core/styles';
 import InputBase from "@material-ui/core/InputBase";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
             width: '100%'
         },
         '& .container': {
+            backgroundColor: 'white',
             padding: '20px'
         },
         '& .cercle': {
@@ -87,8 +88,8 @@ const PayInput = withStyles((theme) => ({
 }))(InputBase);
 
 const PayButton = (props) => {
-    const { backgroundColor, textColor, children, ...rest } = props;
-    
+    const {backgroundColor, textColor, children, ...rest} = props;
+
     const Tmp = withStyles({
         root: {
             boxShadow: "none",
@@ -121,20 +122,20 @@ export const Pay = () => {
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
-        {/* <div className={classes.root}> */}
+            {/* <div className={classes.root}> */}
             <div className="container">
-                <div className="cercle"> </div>
+                <div className="cercle"></div>
                 <TextField
                     id="merchant"
                     label="Merchant"
                     defaultValue="Yalelo Buseko"
-                    InputProps={{ classes, readOnly: true }}
+                    InputProps={{classes, readOnly: true}}
                 />
                 <FormControl>
                     <InputLabel shrink htmlFor="pay-input">
                         Enter Amount
                     </InputLabel>
-                    <PayInput defaultValue="5600" id="pay-input" />
+                    <PayInput defaultValue="5600" id="pay-input"/>
                 </FormControl>
                 <PayButton
                     variant="contained"
@@ -159,7 +160,7 @@ export const Pay = () => {
                     cancel
                 </PayButton>
             </div>
-        {/* </div> */}
+            {/* </div> */}
         </form>
     )
 }
