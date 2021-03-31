@@ -135,7 +135,7 @@ export const Pay = () => {
                     <InputLabel shrink htmlFor="pay-input">
                         Enter Amount
                     </InputLabel>
-                    <PayInput defaultValue="5600" id="pay-input"/>
+                    <PayInput type="number" defaultValue="5600" id="pay-input"/>
                 </FormControl>
                 <PayButton
                     variant="contained"
