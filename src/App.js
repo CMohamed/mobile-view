@@ -1,12 +1,10 @@
 import './App.css';
+import { Pay } from './components/Pay/PayComp';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <p>
-        hahahahhahinstall --save styled-components
-      </p>
+      <Pay />
     </div>
   );
 }
