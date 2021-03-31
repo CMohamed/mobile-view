@@ -22,7 +22,7 @@ export const SelectComp = ({elements, selectedElement, handleSelectChange, title
 
     return (
         <SelectContainer>
-            <SelectTitle>{title}</SelectTitle>
+            <SelectTitle variant="h6" >{title}</SelectTitle>
             <SearchBarContainer>
                 <TextField
                     fullWidth
