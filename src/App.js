@@ -1,11 +1,13 @@
 import './App.css';
-import { Pay } from './components/Pay/PayComp';
+import {BankSelector} from "./pages/BankSelector/BankSelector";
+import {AppContainer} from "./App.style";
 
 function App() {
   return (
-    <div className="App">
-      <Pay />
-    </div>
+    <AppContainer>
+        <BankSelector />
+    </AppContainer>
+
   );
 }
 
