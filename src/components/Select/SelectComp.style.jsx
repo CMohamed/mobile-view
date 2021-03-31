@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import {colors} from "../../styleSheet";
 
 export const SelectContainer = styled.div`
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid red;
+  background-color: ${colors.white};
+  padding: 10px;
 `;
 
 export const SelectTitle = styled.h3`

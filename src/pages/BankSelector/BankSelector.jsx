@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import {SelectComp} from "../../components/Select/SelectComp";
 import {BANKS} from "../../mockedData/data";
+import {ButtonComp} from "../../components/Button/ButtonComp";
+import {colors} from "../../styleSheet";
+import {BankSelectorContainer} from "./BankSelector.style";
 
 
 
@@ -12,12 +15,23 @@ export const BankSelector = () => {
         const selectedBank = banks.find(bank => bank.id === bankId);
         setSelectedBank(selectedBank);
     }
+    const completePayment = (event) => {
+        console.log(event);
+    }
     return (
-        <SelectComp
-            title="Select your preferred bank"
-            elements={banks}
-            selectedElement={selectedBank}
-            handleSelectChange={handleSelectChange}
-        />
+        <BankSelectorContainer>
+            <SelectComp
+                title="Select your preferred bank"
+                elements={banks}
+                selectedElement={selectedBank}
+                handleSelectChange={handleSelectChange}
+            />
+            <ButtonComp
+                label="Complete my payment"
+                color={colors.white}
+                backgroundColor={colors.green}
+                onClick={completePayment}
+            />
+        </BankSelectorContainer>
     )
 }

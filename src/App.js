@@ -1,11 +1,12 @@
 import './App.css';
 import {BankSelector} from "./pages/BankSelector/BankSelector";
+import {AppContainer} from "./App.style";
 
 function App() {
   return (
-    <div>
+    <AppContainer>
         <BankSelector />
-    </div>
+    </AppContainer>
   );
 }
 

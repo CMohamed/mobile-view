@@ -42,14 +42,17 @@ export const SelectComp = ({elements, selectedElement, handleSelectChange, title
                 elements
                     .filter(element => filterByText(element, searchCriteria))
                     .map(element => (
-                        <FormControlLabel
-                            checked={selectedElement && selectedElement.id === element.id}
-                            value={element.id}
-                            control={<Checkbox color="primary" />}
-                            label={element.name}
-                            labelPlacement="end"
-                            onChange={handleCheck}
-                        />
+                        <div>
+                            <FormControlLabel
+                                checked={selectedElement && selectedElement.id === element.id}
+                                value={element.id}
+                                control={<Checkbox color="primary"/>}
+                                label={element.name}
+                                labelPlacement="end"
+                                onChange={handleCheck}
+                            />
+
+                        </div>
                     ))
             }
         </SelectContainer>
