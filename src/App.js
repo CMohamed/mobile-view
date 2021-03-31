@@ -1,12 +1,10 @@
 import './App.css';
+import {BankSelector} from "./pages/BankSelector/BankSelector";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-      <p>
-        hahahahhahinstall --save styled-components
-      </p>
+    <div>
+        <BankSelector />
     </div>
   );
 }
