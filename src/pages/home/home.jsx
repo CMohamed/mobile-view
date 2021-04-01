@@ -1,7 +1,6 @@
 import React from "react";
 import {LinkTo} from "../../components/LinkTo/LinkTo.style";
 import {Typography} from "@material-ui/core";
-import {NavComp} from "../../nav/NavComp";
 
 export const Home = () => {
     return (
