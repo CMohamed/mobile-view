@@ -1,11 +1,11 @@
 import React from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import {makeStyles, withStyles, fade} from '@material-ui/core/styles';
+import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
 import InputBase from "@material-ui/core/InputBase";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import Button from '@material-ui/core/Button';
+import {ButtonComp} from "../Button/ButtonComp";
 
 
 const PAY_BTN_COLOR = '#00e88f';
@@ -87,42 +87,11 @@ const PayInput = withStyles((theme) => ({
     }
 }))(InputBase);
 
-const PayButton = (props) => {
-    const {backgroundColor, textColor, children, ...rest} = props;
-
-    const Tmp = withStyles({
-        root: {
-            boxShadow: "none",
-            textTransform: "capitalize",
-            fontSize: 16,
-            lineHeight: 1.5,
-            width: '100%',
-            color: textColor,
-            backgroundColor: backgroundColor,
-            "&:hover": {
-                boxShadow: "none",
-                backgroundColor: backgroundColor
-            },
-            "&:active": {
-                boxShadow: "none",
-                backgroundColor: backgroundColor,
-            },
-            "&:focus": {
-                boxShadow: "0 0 0 0.2rem rgba(79,238,176,.5)"
-            }
-        }
-    })(Button);
-
-    return <Tmp {...rest}> {children} </Tmp>
-};
-
-
 export const Pay = () => {
     const classes = useStyles();
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
-            {/* <div className={classes.root}> */}
             <div className="container">
                 <div className="cercle"></div>
                 <TextField
@@ -137,30 +106,24 @@ export const Pay = () => {
                     </InputLabel>
                     <PayInput type="number" defaultValue="5600" id="pay-input"/>
                 </FormControl>
-                <PayButton
-                    variant="contained"
-                    color="primary"
+                <ButtonComp
+                    label="Pay Now"
                     className="pay-btn"
                     backgroundColor={PAY_BTN_COLOR}
-                    textColor={PAY_TEXT_COLOR}
+                    color={PAY_TEXT_COLOR}
                     disableRipple
                     disableElevation
-                >
-                    pay now
-                </PayButton>
-                <PayButton
+                />
+                <ButtonComp
+                    label="Cancel"
                     variant="contained"
-                    color="primary"
                     className="cancel-btn"
                     backgroundColor={CALNCEL_BTN_COLOR}
-                    textColor={CANCEL_TEXT_COLOR}
+                    color={CANCEL_TEXT_COLOR}
                     disableRipple
                     disableElevation
-                >
-                    cancel
-                </PayButton>
+                />
             </div>
-            {/* </div> */}
         </form>
     )
 }

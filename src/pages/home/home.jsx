@@ -6,11 +6,12 @@ export const Home = () => {
     return (
         <div style={{
             textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-around'
         }}>
             <Typography variant="h3">Home</Typography>
-            <br/>
-            <LinkTo color="black" to="/banks" >Banks</LinkTo>
-            <LinkTo color="black" to="/pay" >Pay</LinkTo>
+
         </div>
     )
 }
