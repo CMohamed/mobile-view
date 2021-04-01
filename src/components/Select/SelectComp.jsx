@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SearchBarContainer, SelectContainer, SelectTitle} from "./SelectComp.style";
-import {TextField} from "@material-ui/core";
+import {TextField, Typography} from "@material-ui/core";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -22,7 +22,7 @@ export const SelectComp = ({elements, selectedElement, handleSelectChange, title
 
     return (
         <SelectContainer>
-            <SelectTitle variant="h6" >{title}</SelectTitle>
+            <SelectTitle variant="h6">{title}</SelectTitle>
             <SearchBarContainer>
                 <TextField
                     fullWidth
@@ -47,11 +47,17 @@ export const SelectComp = ({elements, selectedElement, handleSelectChange, title
                                 checked={selectedElement && selectedElement.id === element.id}
                                 value={element.id}
                                 control={<Checkbox color="primary"/>}
-                                label={element.name}
+                                label={
+                                    <div style={{display: "flex", alignItems: 'center'}}>
+                                        <img height="40" width="40" src={element.logo} style={{marginRight: 10}}/>
+                                        <Typography>
+                                            {element.name}
+                                        </Typography>
+                                    </div>
+                                }
                                 labelPlacement="end"
                                 onChange={handleCheck}
                             />
-
                         </div>
                     ))
             }
