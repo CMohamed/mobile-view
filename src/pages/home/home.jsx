@@ -1,13 +1,17 @@
 import React from "react";
 import {LinkTo} from "../../components/LinkTo/LinkTo.style";
+import {Typography} from "@material-ui/core";
+import {NavComp} from "../../nav/NavComp";
 
 export const Home = () => {
     return (
-        <div>
-            Home
+        <div style={{
+            textAlign: 'center',
+        }}>
+            <Typography variant="h3">Home</Typography>
             <br/>
-            <LinkTo to="/banks" >Banks</LinkTo>
-            <LinkTo to="/pay" >Pay</LinkTo>
+            <LinkTo color="black" to="/banks" >Banks</LinkTo>
+            <LinkTo color="black" to="/pay" >Pay</LinkTo>
         </div>
     )
 }
