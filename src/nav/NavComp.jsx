@@ -12,6 +12,10 @@ const NavCompContainer = styled.div`
   justify-content: space-around;
 `;
 
+const NavItem = styled.div`
+    
+`;
+
 export const NavComp = () => {
     return (
         <NavCompContainer>
