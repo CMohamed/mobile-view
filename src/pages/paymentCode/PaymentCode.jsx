@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {SelectTitle} from "../../components/Select/SelectComp.style";
 import {colors} from "../../styleSheet";
@@ -29,6 +29,9 @@ const CodeContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   right: 10px;
 `;
@@ -39,10 +42,17 @@ const InstructionContainer = styled.div`
   margin: 20px 0;
 `;
 
+const SmallStyled = styled.small`
+    font-size: xx-small;
+`;
+
 export const PaymentCodeComp = ({paymentCode}) => {
+
+    const [copied, setCopied] = useState(false);
 
     const copyToClipBoard = () => {
         navigator.clipboard.writeText(paymentCode)
+        setCopied(true);
     };
 
     return (
@@ -52,6 +62,9 @@ export const PaymentCodeComp = ({paymentCode}) => {
                 {paymentCode}
                 <IconContainer onClick={copyToClipBoard}>
                     <FilterNoneIcon color={colors.green}/>
+                    {
+                        copied && <SmallStyled>copied</SmallStyled>
+                    }
                 </IconContainer>
             </CodeContainer>
             <InstructionContainer>
