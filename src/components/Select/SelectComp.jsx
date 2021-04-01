@@ -5,6 +5,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import defaultBank from '/src/assets/banks/default_bank.jpg';
+
 
 export const SelectComp = ({elements, selectedElement, handleSelectChange, title}) => {
     const [searchCriteria, setSearchCriteria] = useState('');
@@ -49,7 +51,10 @@ export const SelectComp = ({elements, selectedElement, handleSelectChange, title
                                 control={<Checkbox color="primary"/>}
                                 label={
                                     <div style={{display: "flex", alignItems: 'center'}}>
-                                        <img height="40" width="40" src={element.logo} style={{marginRight: 10}}/>
+                                        <img height="40"
+                                             width="40"
+                                             src={element.logo ? element.logo : defaultBank}
+                                             style={{marginRight: 10}}/>
                                         <Typography>
                                             {element.name}
                                         </Typography>
