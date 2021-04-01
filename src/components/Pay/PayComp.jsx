@@ -3,26 +3,13 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
 
-import { makeStyles, withStyles, fade } from '@material-ui/core/styles';
-import InputBase from "@material-ui/core/InputBase";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import ModalDialog from '../ModalDialog/ModalDialogComp';
-import { ButtonComp } from '../Button/ButtonComp';
-import { colors } from "../../styleSheet";
-
 import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
 import InputBase from "@material-ui/core/InputBase";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import {ButtonComp} from "../Button/ButtonComp";
-
-
-const PAY_BTN_COLOR = '#00e88f';
-const CALNCEL_BTN_COLOR = '#e5fcf3'
-
-const PAY_TEXT_COLOR = '#e9fdf4';
-const CANCEL_TEXT_COLOR = '#3aeda8';
+import ModalDialog from '../ModalDialog/ModalDialogComp';
+import {ButtonComp} from '../Button/ButtonComp';
+import {colors} from "../../styleSheet";
 
 
 const useStyles = makeStyles((theme) => ({
