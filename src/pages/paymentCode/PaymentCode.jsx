@@ -7,7 +7,7 @@ import FilterNoneIcon from '@material-ui/icons/FilterNone';
 const PaymentCodeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 30px 10px;
   align-items: center;
   background-color: ${colors.white};
   height: 100%;
@@ -25,6 +25,7 @@ const CodeContainer = styled.div`
   font-weight: bold;
   font-size: large;
   border-radius: 6px;
+  margin: 80px 0 20px;
 `;
 
 const IconContainer = styled.div`
