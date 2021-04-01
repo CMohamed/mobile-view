@@ -41,8 +41,8 @@ const InstructionContainer = styled.div`
 export const PaymentCodeComp = ({paymentCode}) => {
 
     const copyToClipBoard = () => {
-        console.log("");
-    }
+        navigator.clipboard.writeText(paymentCode)
+    };
 
     return (
         <PaymentCodeContainer>
