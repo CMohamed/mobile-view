@@ -1,6 +1,16 @@
 import React from 'react';
 
 import TextField from '@material-ui/core/TextField';
+
+
+import { makeStyles, withStyles, fade } from '@material-ui/core/styles';
+import InputBase from "@material-ui/core/InputBase";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import ModalDialog from '../ModalDialog/ModalDialogComp';
+import { ButtonComp } from '../Button/ButtonComp';
+import { colors } from "../../styleSheet";
+
 import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
 import InputBase from "@material-ui/core/InputBase";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -29,8 +39,8 @@ const useStyles = makeStyles((theme) => ({
             width: '35px',
             height: '35px',
             borderRadius: '50%',
-            boxShadow: `0 0 0 0.65rem ${CALNCEL_BTN_COLOR}`,
-            backgroundColor: PAY_BTN_COLOR,
+            boxShadow: `0 0 0 0.65rem ${colors.lightGreen}`,
+            backgroundColor: colors.green,
             margin: '1.5rem 5px'
         },
         '& .MuiFormControl-root': {
@@ -48,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
                 fontWeight: 600
             }
         },
-        '& .pay-btn': {
+        '& .MuiButtonBase-root': {
             marginBottom: theme.spacing(1)
         }
     },
@@ -87,7 +97,8 @@ const PayInput = withStyles((theme) => ({
     }
 }))(InputBase);
 
-export const Pay = () => {
+export const PayPopUp = ({ onCancel, onPay, merchant }) => {
+
     const classes = useStyles();
 
     return (
@@ -97,34 +108,51 @@ export const Pay = () => {
                 <TextField
                     id="merchant"
                     label="Merchant"
-                    defaultValue="Yalelo Buseko"
-                    InputProps={{classes, readOnly: true}}
+                    defaultValue={merchant}
+                    InputProps={{ classes, readOnly: true }}
                 />
                 <FormControl>
                     <InputLabel shrink htmlFor="pay-input">
                         Enter Amount
                     </InputLabel>
-                    <PayInput type="number" defaultValue="5600" id="pay-input"/>
+                    <PayInput type="number" defaultValue="5600" id="pay-input" />
                 </FormControl>
                 <ButtonComp
-                    label="Pay Now"
-                    className="pay-btn"
-                    backgroundColor={PAY_BTN_COLOR}
-                    color={PAY_TEXT_COLOR}
-                    disableRipple
-                    disableElevation
+                    label="Pay now"
+                    color={colors.textGreen}
+                    backgroundColor={colors.green}
+                    onClick={onPay}
                 />
                 <ButtonComp
                     label="Cancel"
-                    variant="contained"
-                    className="cancel-btn"
-                    backgroundColor={CALNCEL_BTN_COLOR}
-                    color={CANCEL_TEXT_COLOR}
-                    disableRipple
-                    disableElevation
+                    color={colors.textLightGreen}
+                    backgroundColor={colors.lightGreen}
+                    onClick={onCancel}
                 />
             </div>
         </form>
+    )
+}
+
+const Pay = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const onCancel = () => {
+        setOpen(false);
+    }
+
+    const onPay = () => {
+        setOpen(false);
+    }
+
+    return (
+        <div>
+            <div className="logo">
+            </div>
+            <ModalDialog title="Pay" open={open} setOpen={setOpen}>
+                <PayPopUp merchant="Yalelo Buseko" onCancel={onCancel} onPay={onPay} />
+            </ModalDialog>
+        </div>
     )
 }
 
