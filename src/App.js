@@ -7,6 +7,7 @@ import {Home} from "./pages/home/home";
 import {NavComp} from "./nav/NavComp";
 import {PaymentCodeComp} from "./pages/paymentCode/PaymentCode";
 import {ScanQRCodeComp} from "./pages/scanQrCode/ScanQRCodeComp";
+import styled from "styled-components";
 
 export const pages = [
     {
@@ -23,6 +24,9 @@ export const pages = [
     },
 ]
 
+const RouterOutlet = styled.div`
+    bottom: 50px;
+`;
 
 function App() {
   return (
