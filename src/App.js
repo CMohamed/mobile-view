@@ -36,7 +36,7 @@ function App() {
                     <BankSelector />
                 </Route>
                 <Route path="/make-payment">
-                    <PaymentCodeComp />
+                    <PaymentCodeComp paymentCode="*737*000*2345#" />
                 </Route>
                 <Route path="/scan-qr-code">
                     <ScanQRCodeComp />

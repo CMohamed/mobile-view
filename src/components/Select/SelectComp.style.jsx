@@ -7,9 +7,10 @@ export const SelectContainer = styled.div`
   padding: 10px;
 `;
 
-export const SelectTitle = styled(Typography)`
+export const SelectTitle = styled.div`
   font-weight: bold;
   text-align: center;
+  font-size: large;
   margin-bottom: 20px;
 `;
 
