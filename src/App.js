@@ -22,6 +22,14 @@ export const pages = [
         label: 'Banks',
         path: '/banks',
     },
+    {
+        label: 'Make pay',
+        path: '/make-payment',
+    },
+    {
+        label: 'Scan',
+        path: '/scan-qr-code',
+    },
 ]
 
 const RouterOutlet = styled.div`
