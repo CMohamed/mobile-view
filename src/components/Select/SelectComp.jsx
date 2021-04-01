@@ -5,7 +5,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import defaultBank from '/src/assets/banks/default_bank.jpg';
+import defaultBank from '../../assets/banks/default_bank.jpg';
 
 
 export const SelectComp = ({elements, selectedElement, handleSelectChange, title}) => {
