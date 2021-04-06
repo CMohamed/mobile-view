@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import TextField from '@material-ui/core/TextField';
 
@@ -84,9 +84,20 @@ const PayInput = withStyles((theme) => ({
     }
 }))(InputBase);
 
-export const PayPopUp = ({ onCancel, onPay, merchant }) => {
+
+// validate: is a list of function that take a value then return a error message if the rule broken
+
+export const PayPopUp = ({onCancel, onPay, merchant, validate}) => {
 
     const classes = useStyles();
+
+    const [errors, setErrors] = useState([]);
+
+    const onChangeHandler = (event) => {
+        const {target: {value}} = event;
+        const newErrors = validate && validate.map(rule => rule(value));
+        setErrors(newErrors);
+    }
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
@@ -96,15 +107,23 @@ export const PayPopUp = ({ onCancel, onPay, merchant }) => {
                     id="merchant"
                     label="Merchant"
                     defaultValue={merchant}
-                    InputProps={{ classes, readOnly: true }}
+                    InputProps={{classes, readOnly: true}}
                 />
                 <FormControl>
                     <InputLabel shrink htmlFor="pay-input">
                         Enter Amount
                     </InputLabel>
-                    <PayInput type="number" defaultValue="5600" id="pay-input" />
+                    <PayInput defaultValue="5600" id="pay-input" onChange={onChangeHandler}/>
+                    {
+                        errors && errors.map(error => (
+                            <div style={{color: 'red'}}>
+                                {error}
+                            </div>
+                        ))
+                    }
                 </FormControl>
                 <ButtonComp
+                    disabled
                     label="Pay now"
                     color={colors.textGreen}
                     backgroundColor={colors.green}
@@ -132,12 +151,45 @@ const Pay = () => {
         setOpen(false);
     }
 
+    const required = (value) => {
+        if (!value) return 'this field is required';
+    }
+
+    const isNumber = (value) => {
+        if (isNaN(value)) return 'you must add only number';
+    }
+
+    const isPositiveNumber = (value) => {
+        const number = parseFloat(value);
+        if (number < 0) {
+            return 'you must add only positive number';
+        }
+    }
+
+    const min = (minValue) => (value) => {
+        const number = parseFloat(value);
+        if (number < minValue) {
+            return `you must add only number greater than ${minValue}`;
+        }
+    }
+
+    const max = (maxValue) => (value) => {
+        const number = parseFloat(value);
+        if (number > maxValue) {
+            return `you must add only number less than ${maxValue}`;
+        }
+    }
+
     return (
         <div>
             <div className="logo">
             </div>
             <ModalDialog title="Pay" open={open} setOpen={setOpen}>
-                <PayPopUp merchant="Yalelo Buseko" onCancel={onCancel} onPay={onPay} />
+                <PayPopUp
+                    merchant="Yalelo Buseko"
+                    onCancel={onCancel}
+                    onPay={onPay}
+                    validate={[required, isNumber, isPositiveNumber, min(1), max(1000000)]}/>
             </ModalDialog>
         </div>
     )
