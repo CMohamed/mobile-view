@@ -31,13 +31,14 @@ const CostumeButton = (props) => {
     return <Tmp {...rest}> {children} </Tmp>
 }
 
-export const ButtonComp = ({label, onClick, color, backgroundColor}) => {
+export const ButtonComp = ({label, onClick, color, backgroundColor, disabled}) => {
 
 
 
     return (
         <ButtonCompContainer>
             <CostumeButton
+                disabled={disabled}
                 color={color}
                 backgroundColor={backgroundColor}
                 variant="contained"

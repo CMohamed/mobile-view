@@ -99,6 +99,8 @@ export const PayPopUp = ({onCancel, onPay, merchant, validate}) => {
         setErrors(newErrors);
     }
 
+    console.log(errors);
+
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div className="container">
@@ -123,7 +125,7 @@ export const PayPopUp = ({onCancel, onPay, merchant, validate}) => {
                     }
                 </FormControl>
                 <ButtonComp
-                    disabled
+                    disabled={errors && errors.some(elem => elem)}
                     label="Pay now"
                     color={colors.textGreen}
                     backgroundColor={colors.green}
