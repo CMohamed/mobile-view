@@ -118,7 +118,7 @@ export const PayPopUp = ({onCancel, onPay, merchant, validate}) => {
                     <PayInput defaultValue="5600" id="pay-input" onChange={onChangeHandler}/>
                     {
                         errors && errors.map(error => (
-                            <div style={{color: 'red'}}>
+                            <div style={{color: 'red', fontSize: 'small'}}>
                                 {error}
                             </div>
                         ))
